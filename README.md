@@ -109,7 +109,7 @@ O resolver faz `GET <urlResolver>?url=<deeplink codificado>` e espera uma respos
 { "slug": "my-eitri-app-home", "params": { "route": "ProductCatalog", "params": { "facets": [{ "key": "productClusterIds", "value": "139" }] } } }
 ```
 
-ou `{ "forceWeb": true }` para abrir no navegador. Qualquer outra resposta (404, erro, timeout de 2s, sem `slug`) segue a cadeia normal de resolução.
+ou `{ "forceWeb": true }` para abrir no navegador (`{ "forceWeb": true, "inApp": true }` abre no navegador interno, sem sair do app). Qualquer outra resposta (404, erro, timeout de 2s, sem `slug`) segue a cadeia normal de resolução.
 
 #### Exemplo de configuração de ambiente
 

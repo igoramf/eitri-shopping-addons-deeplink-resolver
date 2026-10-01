@@ -110,7 +110,7 @@ The resolver calls `GET <urlResolver>?url=<encoded deeplink>` and expects a resp
 { "slug": "my-eitri-app-home", "params": { "route": "ProductCatalog", "params": { "facets": [{ "key": "productClusterIds", "value": "139" }] } } }
 ```
 
-or `{ "forceWeb": true }` to open it in the browser. Any other response (404, error, 2s timeout, no `slug`) continues the regular resolution chain.
+or `{ "forceWeb": true }` to open it in the browser (`{ "forceWeb": true, "inApp": true }` opens the in-app browser, without leaving the app). Any other response (404, error, 2s timeout, no `slug`) continues the regular resolution chain.
 
 #### Example Environment Configuration
 

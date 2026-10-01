@@ -3,6 +3,7 @@ import { App, Vtex } from 'eitri-shopping-vtex-shared'
 import {
 	closeEitriApp,
 	openEitriApp,
+	openBrowser,
 	openHome,
 	openLandingPage,
 	openProductBySlug,
@@ -172,7 +173,11 @@ export const resolveDeeplinkFromRemoteConfig = deeplink => {
 // config ou do urlResolver.
 const openDeeplinkEntry = (entry, deeplink) => {
 	if (entry?.forceWeb) {
-		if (entry.forceWeb === true) {
+		// inApp: Custom Tab / SFSafariViewController, sem sair do app. Seguro para
+		// o domínio da própria loja: o navegador interno não devolve o link ao app.
+		if (entry.forceWeb === true && entry.inApp === true) {
+			openBrowser(deeplink, true)
+		} else if (entry.forceWeb === true) {
 			openRedirectLinkBrowser(deeplink)
 		} else {
 			openWebFlow(entry.forceWeb)
